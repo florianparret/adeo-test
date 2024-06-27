@@ -1,0 +1,20 @@
+{
+  "name": "adeo-test",
+  "version": "1.0.0",
+  "description": "This is a technical exercise for ADEO company",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florianparret/command-line-interface.git"
+  },
+  "author": "Florian Parret",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florianparret/command-line-interface/issues"
+  },
+  "homepage": "https://github.com/florianparret/command-line-interface#readme",
+  "type": "module"
+}
