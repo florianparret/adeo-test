@@ -15,11 +15,34 @@ const value = commandAndValue.value;
 
 const filter = (value) => {
   const result = [];
-  data.map((country) => {
+  data.map((country, index) => {
+    let isContainAnimalValue = false;
+
+    for (let i = 0; i < country.people.length; i++) {
+      isContainAnimalValue = JSON.stringify(country.people[i].animals)
+        .toLowerCase()
+        .includes(value.toLowerCase());
+      if (isContainAnimalValue) {
+        result.push({ name: country.name, people: [] });
+        break;
+      }
+    }
     country.people.map((person) => {
+      if (
+        JSON.stringify(person.animals)
+          .toLowerCase()
+          .includes(value.toLowerCase())
+      ) {
+        result[result.length - 1].people.push({
+          name: person.name,
+          animals: [],
+        });
+      }
       person.animals = person.animals.filter((animal) => {
         if (animal.name.toLowerCase().includes(value.toLowerCase())) {
-          result.push({ name: country.name, people : [{name : person.name, "animals" : [{name : animal.name}]}]});
+          result[result.length - 1].people[
+            result[result.length - 1].people.length - 1
+          ].animals.push({ name: animal.name });
         }
       });
     });
@@ -27,6 +50,13 @@ const filter = (value) => {
   console.dir(result, { depth: null, colors: true });
 };
 
-if (command === "filter") {
-  filter(value);
+switch (command) {
+  case "filter":
+    filter(value);
+    break;
+  case "count":
+    console.log("count command is not implemented yet");
+    break;
+  default:
+    console.log(`Sorry, ${expr} is not a command. Type --help.`);
 }
