@@ -15,7 +15,7 @@ const value = commandAndValue.value;
 
 const filter = (value) => {
   const result = [];
-  data.map((country, index) => {
+  data.map((country) => {
     let isContainAnimalValue = false;
 
     for (let i = 0; i < country.people.length; i++) {
@@ -50,13 +50,34 @@ const filter = (value) => {
   console.dir(result, { depth: null, colors: true });
 };
 
+const count = () => {
+    const result = [];
+    data.map((country) => {
+        let peopleCount = country.people.length;
+        result.push({ name: country.name + ` [${peopleCount}]`, people: [] });
+        country.people.map((person) => {
+            let animalsCount = person.animals.length;
+            result[result.length - 1].people.push({
+                name: person.name + ` [${animalsCount}]`,
+                animals: [],
+              });
+            person.animals.map((animal) => {
+                result[result.length - 1].people[
+                    result[result.length - 1].people.length - 1
+                  ].animals.push({ name: animal.name });
+            });
+        });
+    });
+    console.dir(result, { depth: null, colors: true });
+};
+
 switch (command) {
   case "filter":
     filter(value);
     break;
   case "count":
-    console.log("count command is not implemented yet");
+    count();
     break;
   default:
-    console.log(`Sorry, ${expr} is not a command. Type --help.`);
+    console.log(`Sorry, ${command} is not a command. Type --help.`);
 }
