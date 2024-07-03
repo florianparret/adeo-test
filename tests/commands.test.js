@@ -34,28 +34,34 @@ test("Filter command ry have to be as the example", () => {
 });
 
 test("Count command have to contain elements as the example", () => {
-    const dataToFind = [ { name: 'Dillauti [5]',
-        people:
-         [ { name: 'Winifred Graham [6]',
-             animals:
-              [ { name: 'Anoa' },
-                { name: 'Duck' },
-                { name: 'Narwhal' },
-                { name: 'Badger' },
-                { name: 'Cobra' },
-                { name: 'Crow' } ] },
-           { name: 'Blanche Viciani [8]',
-             animals:
-              [ { name: 'Barbet' },
-                { name: 'Rhea' },
-                { name: 'Snakes' },
-                { name: 'Antelope' },
-                { name: 'Echidna' },
-                { name: 'Crow' },
-                { name: 'Guinea Fowl' },
-                { name: 'Deer Mouse' } ] }
-              ]}];
-    const dataToFilter = count();
-    expect(dataToFilter).toMatchObject(dataToFind);
-  });
-  
+  const dataToFind = [
+    {
+      name: 'Dillauti [5]',
+      people: [
+        {
+          name: 'Winifred Graham [6]',
+          animals: [
+            { name: 'Anoa' },
+            { name: 'Duck' },
+            { name: 'Narwhal' },
+            { name: 'Badger' },
+            { name: 'Cobra' },
+            { name: 'Crow' }
+          ]
+        },
+        {
+          name: 'Blanche Viciani [8]',
+          animals: [
+            { name: 'Barbet' },
+            { name: 'Rhea' },
+            { name: 'Snakes' },
+            { name: 'Antelope' },
+            { name: 'Echidna' },
+            { name: 'Crow' },
+            { name: 'Guinea Fowl' },
+            { name: 'Deer Mouse' }
+          ]
+        }]}];
+  const dataToCount = count();
+  expect(dataToCount).toContain(dataToFind);
+});
