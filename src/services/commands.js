@@ -35,6 +35,7 @@ const filter = (value) => {
       });
     });
     console.dir(result, { depth: null, colors: true });
+    return result;
   };
   
   const count = () => {
@@ -56,6 +57,7 @@ const filter = (value) => {
           });
       });
       console.dir(result, { depth: null, colors: true });
+      return result;
   };
 
   export { filter, count };
