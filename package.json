@@ -2,7 +2,7 @@
   "name": "command-line-interface",
   "version": "1.0.0",
   "description": "This is a technical exercise for ADEO company",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
   },

@@ -13,6 +13,9 @@ switch (command) {
   case "count":
     count();
     break;
+  case "help":
+    console.log(`Commands available are --filter and --count`);
+    break;
   default:
     console.log(`Sorry, ${command} is not a command. Type --help.`);
 }
